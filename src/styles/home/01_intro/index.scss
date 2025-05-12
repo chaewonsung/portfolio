@@ -1,0 +1,29 @@
+@use '../variables' as home;
+
+.intro-sec {
+  .inner {
+    position: relative;
+    min-height: calc(100vh - var(--header-height));
+  }
+
+  
+
+  &__heading {
+    display: flex;
+    gap: 3vw;
+
+    .last-name {
+      flex: 5;
+    }
+
+    .first-name {
+      flex: 6.6;
+    }
+  }
+
+  &__content {
+    width: max-content;
+    margin-left: home.sync-with-line(1);
+    margin-top: 40vh;
+  }
+}

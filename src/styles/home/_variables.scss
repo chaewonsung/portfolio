@@ -1,0 +1,14 @@
+@function sync-with-line($line, $calc: true) {
+  $var-name: '--bg-line-#{$line}';
+
+  @if $calc {
+    @return calc(var(#{$var-name}) - var(--g-padding));
+  } @else {
+    @return var(#{$var-name});
+  }
+}
+
+@mixin grid-for-line {
+  display: grid;
+  grid-template-columns: repeat(5, 20vw);
+}
