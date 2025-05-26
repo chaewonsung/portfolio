@@ -20,7 +20,7 @@
 
 .profile {
   width: 20vw;
-  // min-width: 300px;
+  min-width: 200px;
   margin: auto;
   padding: 5px;
   background-color: white;
@@ -71,7 +71,7 @@
     }
 
     .paras {
-      @include text-md;
+      @include text-md(true);
       max-width: 430px;
       display: flex;
       flex-direction: column;
@@ -79,6 +79,7 @@
 
       p {
         text-wrap: balance;
+        word-break: keep-all;
       }
     }
 

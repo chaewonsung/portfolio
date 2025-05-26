@@ -30,9 +30,7 @@ const Work = ({
             <div className="site">
               <dt>live site</dt>
               <dd>
-                <ExternalLink href={`https://chaewonsung.github.io/${site}/`}>
-                  {title.en}.COM
-                </ExternalLink>
+                <ExternalLink href={site}>{title.en}.COM</ExternalLink>
               </dd>
             </div>
             <div className="industry">

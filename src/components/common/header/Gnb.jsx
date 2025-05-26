@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
-const Gnb = () => {
+const Gnb = ({ setOpen }) => {
+  const handleClick = useCallback((e) => {
+    if (e.target.matches('a')) {
+      setOpen(false);
+    }
+  }, []);
   return (
-    <nav className="gnb">
+    <nav className="gnb" onClick={handleClick}>
       <ul>
         <li>
           <a href="/#selected-works">work</a>

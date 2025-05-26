@@ -4,6 +4,7 @@ import WorkOverview from '../common/WorkOverview';
 import '@styles/work-detail/01_intro';
 import classNames from 'classnames';
 import { WorkContext } from '../../../pages/WorkDetailPage';
+import fallbackImg from '@images/work-detail-bg-placeholder.jpg';
 
 const WorkIntro = () => {
   const { title, site, date, sort, id } = useContext(WorkContext);
@@ -37,15 +38,17 @@ const BgImg = ({ setIsImgLoaded, id, title }) => {
     if (!img) return;
 
     const handleLoad = () => setIsImgLoaded(true);
-
+    const handleError = () => (img.src = fallbackImg);
     if (img.complete) {
       setIsImgLoaded(true);
     } else {
       img.addEventListener('load', handleLoad);
+      img.addEventListener('error', handleError);
     }
 
     return () => {
       img.removeEventListener('load', handleLoad);
+      img.removeEventListener('error', handleError);
     };
   }, []);
 

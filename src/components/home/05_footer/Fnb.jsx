@@ -5,16 +5,16 @@ const Fnb = () => {
     <nav className="fnb">
       <ul>
         <li>
-          <a href="">work</a>
+          <a href="#selected-works">work</a>
         </li>
         <li>
-          <a href="">projects</a>
+          <a href="#sub-projects">projects</a>
         </li>
         <li>
-          <a href="">about</a>
+          <a href="#about">about</a>
         </li>
         <li className="scroll-to-top">
-          <a href="">scroll to top</a>
+          <button onClick={() => scrollTo(0, 0)}>scroll to top</button>
         </li>
       </ul>
     </nav>

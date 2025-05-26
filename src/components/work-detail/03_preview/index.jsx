@@ -6,7 +6,7 @@ import ScrollingStatus from './ScrollingStatus';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useNavigate, useParams } from 'react-router-dom';
-import { lenis } from '../../../hooks/useLenis';
+import { lenis } from '../../common/ReactLenis';
 import { WorkContext } from '../../../pages/WorkDetailPage';
 import WORK_DETAIL from '../../../data/work';
 

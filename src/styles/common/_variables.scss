@@ -40,8 +40,11 @@ $mq-large: 1024px;
   }
 }
 
-@mixin text-md {
+@mixin text-md($setLineHeight: false) {
   font-size: var(--text-md);
+  @if ($setLineHeight) {
+    line-height: 1.7;
+  }
 }
 
 @mixin text-lg($setLineHeight: false) {

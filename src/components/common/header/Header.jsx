@@ -52,7 +52,7 @@ const Content = () => {
     >
       <Inner>
         <Logo />
-        <Gnb />
+        <Gnb setOpen={setOpen} />
         <BtnMenu handleToggle={handleToggle} />
       </Inner>
     </header>

@@ -6,7 +6,7 @@ import App from './App';
 const root = createRoot(document.querySelector('#root'));
 
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.MODE === 'dev' ? '/' : '/portfolio'}>
     <App />
   </BrowserRouter>
 );
