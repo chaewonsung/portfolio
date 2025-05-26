@@ -1,0 +1,136 @@
+@use '../variables' as work-detail;
+
+.work-detail-sec {
+  position: relative;
+  background-color: work-detail.$bg-color;
+}
+
+.work-desc {
+  .inner {
+    display: flex;
+    margin-bottom: 100px;
+    padding-top: 130px;
+
+    > * {
+      flex: 1;
+    }
+  }
+
+  &__meta {
+    margin-right: 50px;
+  }
+
+  &__title {
+    font-size: 3rem;
+    letter-spacing: -0.03em;
+    font-weight: 500;
+    margin-bottom: 50px;
+    word-break: keep-all;
+  }
+
+  &__dl {
+    @include text-sm;
+    text-transform: capitalize;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+
+    > div {
+      display: flex;
+      gap: 1em;
+    }
+
+    dt,
+    dd {
+      display: inline-block;
+    }
+
+    dt {
+      min-width: 7.3rem;
+      opacity: 0.5;
+    }
+  }
+
+  .view-btn {
+    width: fit-content;
+    padding: 1em 1.5em;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__section {
+    h2 {
+      @include text-sm;
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+      border-bottom: 1px solid #00000050;
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+
+    p {
+      @include text-sm(true);
+    }
+  }
+}
+
+.work-gallery {
+  .inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g-padding);
+  }
+
+  &__img-wrapper {
+    box-shadow: rgb(190, 190, 190) 8px 8px 16px inset,
+      rgb(255, 255, 255) -8px -8px 16px inset;
+    padding: 6% 0px;
+    border-radius: 20px;
+  }
+
+  img {
+    display: block;
+    width: 70%;
+    max-width: 1400px;
+    margin: auto;
+    border-radius: 20px;
+    filter: drop-shadow(0 0 1px white);
+  }
+}
+
+@include mq-large {
+  .work-desc {
+    .inner {
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    &__meta {
+      margin-right: 0;
+    }
+
+    &__dl {
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
+  }
+}
+@media (max-width: 1400px) {
+  .work-gallery {
+    &__img-wrapper {
+      box-shadow: none;
+      padding: 0;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+}

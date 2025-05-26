@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
-      "@styles/*": ["src/styles/*"],
-      "@components/*": ["src/components/*"],
-      "@images/*": ["src/images/*"],
-      "@textSvg/*": ["src/images/text-svg/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@components/*": ["./src/components/*"],
+      "@images/*": ["./src/images/*"],
+      "@textSvg/*": ["./src/images/text-svg/*"]
     }
   },
   "include": ["src/**/*.js", "src/**/*.jsx"],

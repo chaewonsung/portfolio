@@ -1,0 +1,81 @@
+@use '../variables' as work-detail;
+
+.work-preview {
+  position: sticky;
+  top: 0;
+  background-color: work-detail.$bg-color;
+
+  & + .space {
+    height: 100vh;
+  }
+
+  .inner {
+    position: relative;
+  }
+
+  .work-overview {
+    @extend %work-overview;
+    height: 100vh;
+
+    &__hr {
+      opacity: 0;
+    }
+  }
+
+  &__sm-text,
+  .scrolling-status {
+    position: absolute;
+  }
+
+  &__sm-text {
+    @include text-sm;
+    top: 36vh;
+    text-transform: capitalize;
+  }
+
+  .scrolling-status {
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.scrolling-status {
+  &__text {
+    @include text-sm-caps;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 1em;
+  }
+
+  &__bar {
+    position: relative;
+    width: 200px;
+    height: 15px;
+    transform-origin: left;
+
+    .bg,
+    .progress {
+      position: absolute;
+      inset: 0;
+    }
+
+    .bg {
+      display: flex;
+      justify-content: space-between;
+
+      > * {
+        width: 1px;
+        height: 100%;
+        background-color: black;
+      }
+    }
+
+    .progress {
+      border: 1px solid black;
+      background-color: work-detail.$bg-color;
+      transform-origin: left;
+      transform: scaleX(var(--scrolling-progress, 1));
+    }
+  }
+}

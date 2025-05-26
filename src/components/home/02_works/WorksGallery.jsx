@@ -1,50 +1,36 @@
-import React, { useEffect, useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import React, { useRef } from 'react';
 
 const WorksGallery = () => {
-  const animTriggerRef = useRef();
-  const animTargetRef = useRef();
+  const containerRef = useRef();
 
-  useEffect(() => {
-    const trigger = animTriggerRef.current;
-    const target = animTargetRef.current;
-
-    const start = Math.floor(
-      scrollY + trigger.getBoundingClientRect().top - innerHeight
-    );
-    const end = start + trigger.offsetHeight + 300;
-    const ease = 0.05;
-    let currentScale = 2;
-    let nextScale = 2;
-
-    const handleScroll = () => {
-      if (scrollY < start || scrollY > end) return;
-
-      let progress = (scrollY - start) / (end - start);
-      nextScale = 2 - progress;
-    };
-
-    function animate() {
-      currentScale += (nextScale - currentScale) * ease;
-      target.style.transform = `scale(${currentScale})`;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  useGSAP(
+    () => {
+      gsap.from('.works-gallery__content', {
+        scale: 2,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          scrub: 1,
+          end: '50% 0%',
+        },
+      });
+    },
+    { scope: containerRef }
+  );
 
   return (
-    <div className="works-gallery" ref={animTriggerRef}>
-      <div className="works-gallery__content" ref={animTargetRef}>
+    <div className="works-gallery" ref={containerRef}>
+      <div className="works-gallery__content">
         {[...new Array(3)].map((_, i) => (
           <div key={i} className="works-gallery__col">
-            <img src={require('@images/test.png')} alt="" />
-            <img src={require('@images/test.png')} alt="" />
-            <img src={require('@images/test.png')} alt="" />
+            {[...new Array(3)].map((_, j) => (
+              <img
+                key={j}
+                src={require(`@images/work-gallery-0${3 * i + (j + 1)}.png`)}
+                alt=""
+              />
+            ))}
           </div>
         ))}
       </div>

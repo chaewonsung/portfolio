@@ -72,7 +72,7 @@
 
     .paras {
       @include text-md;
-      width: 430px;
+      max-width: 430px;
       display: flex;
       flex-direction: column;
       gap: 2em;
@@ -108,6 +108,43 @@
 
       h3 {
         left: home.sync-with-line(1, false);
+      }
+    }
+  }
+}
+
+@include mq-large {
+  .self-introduction {
+    &__item {
+      &--02,
+      &--04 {
+        padding-left: home.sync-with-line(2, false);
+
+        h3 {
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+@include mq-medium {
+  .about-sec {
+    .inner {
+      margin-bottom: 250px;
+    }
+  }
+  .self-introduction {
+    padding-inline: var(--g-padding);
+    gap: 200px;
+    &__item {
+      padding-left: 0;
+
+      h3 {
+        position: static;
+        text-align: left;
+        padding-left: 0;
+        margin-bottom: 50px;
       }
     }
   }

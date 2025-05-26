@@ -1,8 +1,8 @@
 import React from 'react';
 
-const BtnMenu = () => {
+const BtnMenu = ({ handleToggle }) => {
   return (
-    <button className="btn-menu mobile-only">
+    <button className="btn-menu only-lg" onClick={handleToggle}>
       <i></i>
       <i></i>
     </button>

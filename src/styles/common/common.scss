@@ -7,6 +7,23 @@
 :root {
   --header-height: 4rem;
   --g-padding: 15px;
+
+  --text-sm: 1.3rem;
+  --text-sm-caps: 1.15rem;
+  --text-md: 2rem;
+  --text-lg: 4rem;
+
+  @include mq-large {
+    --header-height: 5rem;
+  }
+  @include mq-medium {
+    --text-md: 1.6rem;
+    --text-lg: 2.8rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html,
@@ -34,9 +51,58 @@ body {
 }
 
 .inner {
+  max-width: 1400px;
   padding-inline: var(--g-padding);
+  margin: auto;
+
+  &--full {
+    max-width: 100%;
+  }
 }
 
-.mobile-only {
+.external-link {
+  display: flex;
+
+  &__arrow {
+    display: grid;
+    grid-template-columns: 0fr;
+    transition: grid-template-columns 0.2s;
+    > * {
+      overflow: hidden;
+    }
+    span {
+      display: inline-block;
+      transform: translateX(-100%);
+      transition: transform 0.2s;
+    }
+  }
+
+  &:hover & {
+    &__arrow {
+      grid-template-columns: 1fr;
+
+      span {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+.view-btn {
+  @include text-sm-caps;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  padding: 1em 0.8em;
+  border-radius: 10px;
+}
+
+.only-lg {
   display: none;
+}
+
+@include mq-large {
+  .only-lg {
+    display: inherit;
+  }
 }

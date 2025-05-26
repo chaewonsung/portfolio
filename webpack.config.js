@@ -7,6 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -68,10 +69,10 @@ module.exports = {
   plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })],
   resolve: {
     alias: {
-      '@styles': path.resolve(__dirname, './src/styles/'),
-      '@components': path.resolve(__dirname, './src/components/'),
-      '@images': path.resolve(__dirname, './src/images/'),
-      '@textSvg': path.resolve(__dirname, './src/images/text-svg/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@images': path.resolve(__dirname, 'src/images/'),
+      '@textSvg': path.resolve(__dirname, 'src/images/text-svg/'),
     },
     extensions: ['.js', '.jsx', '.scss', '.css'],
   },
@@ -79,5 +80,6 @@ module.exports = {
     static: './public',
     open: true,
     hot: true,
+    historyApiFallback: true,
   },
 };

@@ -8,7 +8,7 @@ import LastName from '@textSvg/hwang.svg';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" id="connect">
       <Inner>
         <div className="footer__top">
           <Name />

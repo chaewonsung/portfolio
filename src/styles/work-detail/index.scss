@@ -1,0 +1,49 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.work-detail-main {
+  color: black;
+}
+
+.work-overview {
+  &__title {
+    @include text-lg;
+    text-transform: capitalize;
+  }
+
+  &__hr {
+    height: 1px;
+    background-color: black;
+    margin-block: 11px 16px;
+  }
+
+  &__sub-info {
+    @include text-sm-caps;
+    display: flex;
+
+    > *:nth-child(1) {
+      width: 50%;
+    }
+    > *:nth-child(3) {
+      margin-left: auto;
+    }
+  }
+}
+
+@include mq-medium {
+  .work-overview {
+    &__sub-info {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+
+      > *:nth-child(2) {
+        text-align: right;
+      }
+      > *:nth-child(3) {
+        margin-left: 0;
+      }
+    }
+  }
+}

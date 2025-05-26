@@ -28,7 +28,6 @@
   }
 
   &__name {
-    text-transform: uppercase;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -56,6 +55,31 @@
       &::after {
         content: ', ';
       }
+    }
+  }
+}
+
+@include mq-large {
+  .footer {
+    .inner {
+      height: auto;
+      gap: 100px;
+    }
+
+    &__top {
+      flex-direction: column;
+      gap: 70px;
+    }
+
+    &__name {
+      svg {
+        height: 10vw;
+      }
+    }
+
+    &__address {
+      text-align: left;
+      margin-left: 0;
     }
   }
 }

@@ -1,0 +1,5 @@
+$bg-color: #ebebeb;
+
+%work-overview {
+  padding-top: calc(50vh - var(--content-height, 0));
+}

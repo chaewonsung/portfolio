@@ -62,17 +62,47 @@
   }
 
   &__thumb {
+    position: relative;
     aspect-ratio: 1/0.6;
     max-height: 400px;
     border-radius: 10px;
-    // border: 1px solid #b8b8b850;
-    overflow: hidden;
+    background-color: #f5f5f5;
+
+    .img-wrapper {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    img,
+    &-cursor {
+      pointer-events: none;
+    }
+
+    &-cursor {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+    }
 
     img {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      transition: scale 0.5s;
+    }
+
+    &:hover {
+      cursor: none;
+      img {
+        scale: 103%;
+      }
+
+      .work__thumb-cursor {
+        opacity: 1;
+      }
     }
   }
 
@@ -156,6 +186,7 @@
 
   overflow: hidden;
   mask: linear-gradient(black 66%, transparent);
+  margin-inline: calc(var(--g-padding) * -1);
 
   &__content {
     display: flex;
@@ -171,7 +202,51 @@
     img {
       width: 100%;
       aspect-ratio: 1.5;
-      border-radius: 10px;
+      border-radius: 3px;
+      background: #f5f5f5;
     }
+  }
+}
+
+@include mq-large {
+  .work {
+    flex-direction: column;
+
+    &__thumb {
+      max-height: initial;
+    }
+
+    &__desc {
+      gap: 50px;
+    }
+  }
+}
+
+@include mq-medium {
+  .works-sec {
+    .inner {
+      margin-bottom: 250px;
+    }
+  }
+  .gradient-bg {
+    height: 70vh;
+  }
+  .work {
+    &__dl {
+      grid-template-columns: repeat(2, auto);
+      justify-content: space-between;
+      row-gap: 1em;
+      .deliverables {
+        display: none;
+      }
+      .industry,
+      .published {
+        text-align: right;
+      }
+    }
+  }
+
+  .works-gallery {
+    display: none;
   }
 }

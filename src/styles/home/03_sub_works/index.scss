@@ -76,3 +76,28 @@
     }
   }
 }
+
+@include mq-large {
+  .sub-work {
+    color: white;
+    grid-template-columns: min-content min-content auto;
+
+    &__order {
+      margin-right: 1em;
+    }
+    &__name {
+      font-family: ff('Instrument Serif');
+      transform: translateY(-0.15em);
+    }
+
+    &__info {
+      width: 50vw;
+      padding-right: 10vw;
+      margin-left: auto;
+    }
+
+    &__thumb {
+      display: none;
+    }
+  }
+}

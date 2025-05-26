@@ -1,28 +1,52 @@
-/* Text */
-@mixin text-sm-caps {
-  font-size: 1.15rem;
-  text-transform: uppercase;
-}
-
-@mixin text-sm($setLineHeight: false) {
-  font-size: 1.3rem;
-  @if ($setLineHeight) {
-    line-height: 1.5;
-  }
-}
-
-@mixin text-md {
-  font-size: 2rem;
-}
-
-@mixin text-lg {
-  font-size: 4.6rem;
-}
-
 /* Font */
 @function ff($ff) {
   @return $ff, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
     'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
     'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     sans-serif;
+}
+
+/* Media Query */
+$mq-small: 400px;
+$mq-medium: 768px;
+$mq-large: 1024px;
+
+@mixin mq-small() {
+  @media (max-width: #{$mq-small}) {
+    @content;
+  }
+}
+@mixin mq-medium() {
+  @media (max-width: #{$mq-medium}) {
+    @content;
+  }
+}
+@mixin mq-large() {
+  @media (max-width: #{$mq-large}) {
+    @content;
+  }
+}
+
+/* Text */
+@mixin text-sm-caps {
+  font-size: var(--text-sm-caps);
+  text-transform: uppercase;
+}
+
+@mixin text-sm($setLineHeight: false) {
+  font-size: var(--text-sm);
+  @if ($setLineHeight) {
+    line-height: 1.5;
+  }
+}
+
+@mixin text-md {
+  font-size: var(--text-md);
+}
+
+@mixin text-lg($setLineHeight: false) {
+  font-size: var(--text-lg);
+  @if ($setLineHeight) {
+    line-height: 1.2;
+  }
 }

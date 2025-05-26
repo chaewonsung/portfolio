@@ -1,21 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Gnb = () => {
   return (
     <nav className="gnb">
       <ul>
         <li>
-          <Link to="/work">work</Link>
+          <a href="/#selected-works">work</a>
         </li>
         <li>
-          <Link>services</Link>
+          <a href="/#sub-projects">projects</a>
         </li>
         <li>
-          <Link>about</Link>
+          <a href="/#about">about</a>
         </li>
         <li>
-          <Link>connect</Link>
+          <a href="/#connect">connect</a>
         </li>
       </ul>
     </nav>

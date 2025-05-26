@@ -5,7 +5,7 @@ import SubTextGroup from '../common/SubTextGroup';
 
 const AboutHeading = () => {
   return (
-    <div className="about-heading">
+    <div className="about-heading" id="about">
       <Heading>
         <TextSVG />
       </Heading>

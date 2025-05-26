@@ -3,10 +3,9 @@
 .intro-sec {
   .inner {
     position: relative;
-    min-height: calc(100vh - var(--header-height));
+    min-height: 100vh;
+    padding-top: var(--header-height);
   }
-
-  
 
   &__heading {
     display: flex;
@@ -22,8 +21,17 @@
   }
 
   &__content {
-    width: max-content;
+    max-width: max-content;
     margin-left: home.sync-with-line(1);
     margin-top: 40vh;
+    text-wrap: balance;
+  }
+}
+
+@include mq-medium {
+  .intro-sec {
+    &__content {
+      margin-left: 0;
+    }
   }
 }

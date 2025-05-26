@@ -4,7 +4,7 @@ import SubTextGroup from '../common/SubTextGroup';
 
 const WorksHeading = () => {
   return (
-    <h2 className="works-sec__heading">
+    <h2 className="works-sec__heading" id="selected-works">
       <TextSVG />
       <SubTextGroup
         textArr={['gam', 'thesystemboss', 'pharsalus', 'expert insights']}
