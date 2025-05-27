@@ -21,7 +21,7 @@ module.exports = (_, argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js',
       clean: true,
-      publicPath: isDev ? '/' : '/portfolio',
+      publicPath: isDev ? '/' : '/portfolio/',
     },
     module: {
       rules: [

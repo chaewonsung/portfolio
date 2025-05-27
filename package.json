@@ -44,5 +44,5 @@
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1"
   },
-  "homepage": "https://chaewonsung.github.io/portfolio/"
+  "homepage": "https://chaewonsung.github.io/portfolio"
 }
