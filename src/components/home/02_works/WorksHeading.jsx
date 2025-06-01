@@ -7,7 +7,7 @@ const WorksHeading = () => {
     <h2 className="works-sec__heading" id="selected-works">
       <TextSVG />
       <SubTextGroup
-        textArr={['gam', 'thesystemboss', 'pharsalus', 'expert insights']}
+        textArr={['pp fragment', 'appknot', 'danggn', 'and more']}
       />
     </h2>
   );

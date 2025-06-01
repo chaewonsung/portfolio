@@ -2,7 +2,7 @@ import React from 'react';
 import '@styles/home/05_footer';
 import Inner from '@components/common/layouts/Inner';
 import Fnb from './Fnb';
-import SocialLinks from './SocialLinks';
+// import SocialLinks from './SocialLinks';
 import FirstName from '@textSvg/chaewon.svg';
 import LastName from '@textSvg/hwang.svg';
 
@@ -17,7 +17,8 @@ const Footer = () => {
         </div>
         <div className="footer__bottom">
           <Copyright />
-          <SocialLinks />
+          {/* <SocialLinks /> */}
+          <div>Thank You</div>
         </div>
       </Inner>
     </footer>

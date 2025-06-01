@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 const Gnb = ({ setOpen }) => {
   const handleClick = useCallback((e) => {
@@ -10,16 +11,16 @@ const Gnb = ({ setOpen }) => {
     <nav className="gnb" onClick={handleClick}>
       <ul>
         <li>
-          <a href="/#selected-works">work</a>
+          <Link to="/#selected-works">work</Link>
         </li>
         <li>
-          <a href="/#sub-projects">projects</a>
+          <Link to="/#sub-projects">projects</Link>
         </li>
         <li>
-          <a href="/#about">about</a>
+          <Link to="/#about">about</Link>
         </li>
         <li>
-          <a href="/#connect">connect</a>
+          <Link to="/#connect">connect</Link>
         </li>
       </ul>
     </nav>

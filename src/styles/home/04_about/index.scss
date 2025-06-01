@@ -3,7 +3,6 @@
 .about-sec {
   .inner {
     padding: 0;
-    margin-bottom: 400px;
   }
 
   .profile {
@@ -56,6 +55,8 @@
 
   &__item {
     position: relative;
+        text-wrap: balance;
+
 
     h3 {
       @include text-sm-caps;
@@ -66,19 +67,19 @@
     }
 
     h4 {
-      width: 300px;
+      max-width: 300px;
       margin-bottom: 1em;
     }
 
     .paras {
       @include text-md(true);
-      max-width: 430px;
       display: flex;
       flex-direction: column;
       gap: 2em;
+      padding-right: var(--g-padding);
+      max-width: 430px;
 
       p {
-        text-wrap: balance;
         word-break: keep-all;
       }
     }
@@ -146,6 +147,10 @@
         text-align: left;
         padding-left: 0;
         margin-bottom: 50px;
+      }
+
+      .paras {
+        padding-right: 0;
       }
     }
   }

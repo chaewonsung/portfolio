@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import 'context-filter-polyfill';
 
 const GradientBgTop = () => {
   return (
@@ -31,7 +32,7 @@ const Canvas = () => {
         this.x = x;
         this.y = y;
         this.fixedY = y;
-        this.cur = Math.random() * 100;
+        this.cur = Math.random() * 100; 
         this.speed = 0.005;
         this.max = Math.min(this.fixedY, height - this.fixedY);
       }

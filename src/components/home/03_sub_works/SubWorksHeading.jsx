@@ -10,13 +10,7 @@ const SubWorksHeading = () => {
         <TextSVG />
       </Heading>
       <SubTextGroup
-        textArr={[
-          'strategy',
-          'brand identity',
-          'web design',
-          'web development',
-          'web apps',
-        ]}
+        textArr={['interactive', 'responsive', 'accessible', 'ui development']}
       />
     </div>
   );

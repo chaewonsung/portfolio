@@ -7,6 +7,7 @@ const MainLayout = () => {
   return (
     <>
       <ScrollToTop />
+      <ScrollToHashElement />
       <ReactLenis />
       <Header />
       <Outlet />
@@ -22,6 +23,21 @@ const ScrollToTop = () => {
     window.scrollTo(0, 0);
     lenis.start();
   }, [pathname]);
+
+  return null;
+};
+
+const ScrollToHashElement = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
 
   return null;
 };

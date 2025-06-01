@@ -6,6 +6,7 @@
     position: relative;
     padding-top: 150px;
     margin-bottom: 450px;
+
     > *:not(.gradient-bg) {
       position: relative;
       z-index: 1;
@@ -49,6 +50,7 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
+  overflow: hidden;
 }
 
 .work {
@@ -228,9 +230,6 @@
       margin-bottom: 250px;
     }
   }
-  .gradient-bg {
-    height: 70vh;
-  }
   .work {
     &__dl {
       grid-template-columns: repeat(2, auto);
@@ -244,9 +243,22 @@
         text-align: right;
       }
     }
+
+    &__thumb {
+      &-cursor {
+        display: none;
+      }
+    }
   }
 
   .works-gallery {
     display: none;
+  }
+
+  .gradient-bg {
+    height: 95vh;
+    &--bottom {
+      height: 65vh;
+    }
   }
 }

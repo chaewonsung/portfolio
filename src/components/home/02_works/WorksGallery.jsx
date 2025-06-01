@@ -7,14 +7,23 @@ const WorksGallery = () => {
 
   useGSAP(
     () => {
-      gsap.from('.works-gallery__content', {
-        scale: 2,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          scrub: 1,
-          end: '50% 0%',
-        },
-      });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            scrub: 1,
+            end: '50% 0%',
+          },
+        })
+        .from('.works-gallery__content', {
+          scale: 2,
+        })
+        .fromTo(
+          '.works-gallery__col:nth-child(2)',
+          { yPercent: -10 },
+          { yPercent: 10 },
+          0
+        );
     },
     { scope: containerRef }
   );

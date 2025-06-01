@@ -5,12 +5,12 @@ import SubTextGroup from '../common/SubTextGroup';
 
 const AboutHeading = () => {
   return (
-    <div className="about-heading" id="about">
+    <div className="about-heading">
       <Heading>
         <TextSVG />
       </Heading>
       <SubTextGroup
-        textArr={['father', 'coach', 'hiker', 'designer', 'nomad']}
+        textArr={['daughter', 'learner', 'dreamer', 'creator', 'friend']}
       />
     </div>
   );

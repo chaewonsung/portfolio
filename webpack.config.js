@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (_, argv) => {
   const isDev = argv.mode === 'development';
@@ -9,19 +10,34 @@ module.exports = (_, argv) => {
   const plugins = [
     new HtmlWebpackPlugin({ template: './public/index.html' }),
     new webpack.EnvironmentPlugin({ MODE: isDev ? 'dev' : 'prod' }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: './public',
+          globOptions: {
+            ignore: ['**/index.html'],
+          },
+        },
+      ],
+    }),
   ];
 
   if (!isDev) {
-    plugins.push(new MiniCssExtractPlugin());
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: '[name].[chunkhash].css',
+      })
+    );
   }
 
   return {
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.js',
+      filename: '[name].[chunkhash].js',
       clean: true,
       publicPath: isDev ? '/' : '/portfolio/',
+      assetModuleFilename: 'images/[name].[contenthash:8][ext]',
     },
     module: {
       rules: [
@@ -52,9 +68,6 @@ module.exports = (_, argv) => {
         {
           test: /\.(png|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
-          generator: {
-            filename: 'images/[name][ext]',
-          },
         },
         {
           test: /\.svg$/,
@@ -62,9 +75,6 @@ module.exports = (_, argv) => {
             {
               type: 'asset/resource',
               resourceQuery: /url/,
-              generator: {
-                filename: 'images/[name][ext]',
-              },
             },
             {
               use: ['@svgr/webpack'],

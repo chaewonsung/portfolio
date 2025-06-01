@@ -1,15 +1,18 @@
 .footer {
+  --footer-height: 350px;
   position: relative;
   z-index: 999;
+
   .inner {
     @include text-sm-caps;
     line-height: 1.5;
-    height: 350px;
+    height: var(--footer-height);
     border-top: 1px solid #ffffff20;
     padding-block: var(--g-padding);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: calc(100vh - var(--footer-height));
   }
 
   a,
@@ -62,9 +65,10 @@
 
 @include mq-large {
   .footer {
+    --footer-height: auto;
     .inner {
-      height: auto;
       gap: 100px;
+      margin-top: 350px;
     }
 
     &__top {

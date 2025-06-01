@@ -6,11 +6,10 @@ const IntroContent = () => {
   return (
     <div className="intro-sec__content">
       <SubHeading>
-        crafting digital <i className="en--em">designs</i> that
-        <br />
-        elevate SaaS & AI Innovators
+        Interactive, Responsive, Accessible.
+        <br />I build modern <span className="en--em">web experiences</span>
       </SubHeading>
-      <SubTextGroup textArr={['@2025', 'based in uk', 'designer']} />
+      <SubTextGroup textArr={['@2025', 'publisher', 'ui developer']} />
     </div>
   );
 };

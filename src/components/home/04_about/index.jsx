@@ -7,7 +7,7 @@ import AboutContent from './AboutContent';
 const AboutSection = () => {
   return (
     <section className="about-sec">
-      <Inner>
+      <Inner id="about">
         <AboutHeading />
         <AboutContent />
       </Inner>

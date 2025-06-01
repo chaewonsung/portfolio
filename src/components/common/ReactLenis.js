@@ -11,7 +11,7 @@ const ReactLenis = () => {
 
   useEffect(() => {
     lenis.resize();
-  }, [[pathname]]);
+  }, [pathname]);
 
   useEffect(() => {
     let req;

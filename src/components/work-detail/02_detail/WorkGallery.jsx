@@ -3,6 +3,8 @@ import React, { useContext } from 'react';
 import { WorkContext } from '../../../pages/WorkDetailPage';
 import { useIsImgLoaded } from '../../../hooks/useIsImgLoaded';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const WorkGallery = () => {
   const {
@@ -30,12 +32,26 @@ const WorkGalleryImg = ({ alt, prefix, index }) => {
   const { elementRef, isLoaded } = useIsImgLoaded();
   const requirePath = require(`@images/${prefix}${index}.png`);
 
+  useGSAP(() => {
+    gsap.from(elementRef.current, {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: elementRef.current,
+        start: 'top 80%',
+        once: true,
+      },
+    });
+  });
+
   return (
     <img
       ref={elementRef}
       alt={alt}
       src={isLoaded ? requirePath : null}
       onLoad={() => ScrollTrigger.refresh()}
+      width={isLoaded ? null : '500px'}
     />
   );
 };
